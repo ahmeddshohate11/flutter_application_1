@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ui/signin/sign_in_screen.dart';
-import 'package:flutter_application_1/ui/start/starts_page_screen.dart';
 
 class NextPageScreen extends StatelessWidget {
   const NextPageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0XFF1483C2),
@@ -36,7 +37,7 @@ class NextPageScreen extends StatelessWidget {
                 top: 5,
                 left: 14,
                 child: Image.asset("assets/images/Aire Jordan Nike.png")),
-            Positioned(
+            const Positioned(
               top: 400,
               left: 50,
               child: Column(
@@ -81,15 +82,15 @@ class NextPageScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset("assets/images/Line 34.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Image.asset("assets/images/Line 35.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Image.asset("assets/images/Line 33.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                 ],
@@ -106,6 +107,14 @@ class NextPageScreen extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const SignInScreen()));
                 },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  foregroundColor: const Color.fromARGB(255, 44, 18, 18),
+                  backgroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                ),
                 child: const Text(
                   "Next",
                   style: TextStyle(
@@ -113,14 +122,6 @@ class NextPageScreen extends StatelessWidget {
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  foregroundColor: const Color.fromARGB(255, 44, 18, 18),
-                  backgroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 ),
               ),
             ),

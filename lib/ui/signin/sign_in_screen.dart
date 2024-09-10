@@ -14,6 +14,15 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _passwordController = TextEditingController();
   bool _obscureText = true;
   bool _isLoading = false;
+  late double height;
+  late double width;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +33,7 @@ class _SignInScreenState extends State<SignInScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              icon: Icon(Icons.arrow_back_ios_rounded)),
+              icon: const Icon(Icons.arrow_back_ios_rounded)),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -32,33 +41,32 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Form(
               key: _formKey,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    "Hello Again!",
-                    style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
+                  const Center(
+                    child: Text(
+                      "Hello Again!",
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
-                    "Fill your details or continue with",
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: Color(0XFF707B81),
-                        fontWeight: FontWeight.bold),
+                  const SizedBox(height: 5),
+                  const Center(
+                    child: Text(
+                      "Fill your details or continue with social media",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Color(0XFF707B81),
+                    
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  SizedBox(height: 2),
-                  Text(
-                    "social media",
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: Color(0XFF707B81),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     "Email Address                                          ",
                     style: TextStyle(
                         fontSize: 25,
@@ -66,7 +74,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         fontWeight: FontWeight.bold),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: TextFormField(
                       controller: _emailController,
                       decoration: InputDecoration(
@@ -74,8 +82,9 @@ class _SignInScreenState extends State<SignInScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         hintText: "xyz@gmail.com",
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                             color: Color(0XFF707B81),
+                            // color : AppColor.primary,
                             fontSize: 15,
                             fontWeight: FontWeight.bold),
                       ),
@@ -91,9 +100,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       },
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
-                    "Password                                      ",
+                  const SizedBox(height: 5),
+                  const Text(
+                    "Password",
                     style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
@@ -137,16 +146,21 @@ class _SignInScreenState extends State<SignInScreen> {
                       },
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    "                                                                                       Recovery Password",
-                    style: TextStyle(
-                      color: Color(0XFF707B81),
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  const SizedBox(height: 10),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Recovery Password",
+                        style: TextStyle(
+                          color: Color(0XFF707B81),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   ElevatedButton(
                     onPressed: _isLoading
                         ? null
@@ -157,30 +171,19 @@ class _SignInScreenState extends State<SignInScreen> {
                               });
 
                               // Simulate a network call or some async operation
-                              Future.delayed(Duration(seconds: 5), () {
+                              Future.delayed(const Duration(seconds: 5), () {
                                 setState(() {
                                   _isLoading = false; // Stop loading
                                 });
-                                // Navigate to the next screen
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => SignUpScreen(),
+                                    builder: (context) => const SignUpScreen(),
                                   ),
                                 );
                               });
                             }
                           },
-                    child: _isLoading
-                        ? CircularProgressIndicator()
-                        : Text(
-                            'Sign In',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 130, vertical: 10),
@@ -189,21 +192,30 @@ class _SignInScreenState extends State<SignInScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
+                    child: _isLoading
+                        ? const CircularProgressIndicator()
+                        : const Text(
+                            'Sign In',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Padding(
-                    padding: EdgeInsets.all(50),
+                    padding: const EdgeInsets.all(50),
                     child: Row(
                       children: [
-                        Container(
-                          height: 100,
+                        Image.asset(
+                          "assets/images/google.png",
                           width: 100,
-                          child: Image.asset(
-                            "assets/images/google.png",
-                          ),
+                          height: 100,
+                          fit: BoxFit.cover,
                         ),
-                        SizedBox(width: 15),
-                        Text(
+                        const SizedBox(width: 15),
+                        const Text(
                           'Sign In with Google ',
                           style: TextStyle(
                             fontSize: 20,
@@ -214,17 +226,17 @@ class _SignInScreenState extends State<SignInScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 60),
+                  const SizedBox(height: 60),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignUpScreen(),
+                          builder: (context) => const SignUpScreen(),
                         ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "New User? Create Account",
                       style: TextStyle(
                           fontSize: 25,

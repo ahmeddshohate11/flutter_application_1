@@ -27,7 +27,7 @@ class StartsPageScreen extends StatelessWidget {
                 top: 110,
                 left: 14,
                 child: Image.asset("assets/images/Spring_prev_ui 1.png")),
-            Positioned(
+            const Positioned(
               top: 400,
               left: 50,
               child: Column(
@@ -72,15 +72,15 @@ class StartsPageScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset("assets/images/Line 34.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Image.asset("assets/images/Line 33.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Image.asset("assets/images/Line 34.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                 ],
@@ -97,6 +97,14 @@ class StartsPageScreen extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const NextPageScreen()));
                 },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  foregroundColor: const Color.fromARGB(255, 44, 18, 18),
+                  backgroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                ),
                 child: const Text(
                   "Next",
                   style: TextStyle(
@@ -104,14 +112,6 @@ class StartsPageScreen extends StatelessWidget {
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  foregroundColor: const Color.fromARGB(255, 44, 18, 18),
-                  backgroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 ),
               ),
             ),

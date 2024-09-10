@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ui/nextpage/next_page_screen.dart';
 import 'package:flutter_application_1/ui/start/starts_page_screen.dart';
 
 class Homescreen extends StatelessWidget {
@@ -38,7 +37,7 @@ class Homescreen extends StatelessWidget {
               left: 130,
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     "WELCOME TO ",
                     style: TextStyle(
                       fontSize: 40,
@@ -46,7 +45,7 @@ class Homescreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
+                  const Text(
                     "NIKE",
                     style: TextStyle(
                       fontSize: 40,
@@ -54,7 +53,7 @@ class Homescreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Image.asset("assets/images/Vector (1).png"),
@@ -107,15 +106,15 @@ class Homescreen extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset("assets/images/Line 33.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Image.asset("assets/images/Line 34.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Image.asset("assets/images/Line 35.png"),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                 ],
@@ -132,6 +131,14 @@ class Homescreen extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const StartsPageScreen()));
                 },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  foregroundColor: const Color.fromARGB(255, 44, 18, 18),
+                  backgroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                ),
                 child: const Text(
                   "Get Started",
                   style: TextStyle(
@@ -139,14 +146,6 @@ class Homescreen extends StatelessWidget {
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  foregroundColor: const Color.fromARGB(255, 44, 18, 18),
-                  backgroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 ),
               ),
             ),

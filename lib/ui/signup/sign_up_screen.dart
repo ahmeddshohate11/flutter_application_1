@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ui/home/homescreen.dart';
 import 'package:flutter_application_1/ui/signin/sign_in_screen.dart';
-import 'package:flutter_application_1/ui/signup/sign_up_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -28,7 +27,7 @@ class _SignInScreenState extends State<SignUpScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              icon: Icon(Icons.arrow_back_ios_rounded)),
+              icon: const Icon(Icons.arrow_back_ios_rounded)),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -38,31 +37,31 @@ class _SignInScreenState extends State<SignUpScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  const Text(
                     "Register Account",
                     style: TextStyle(
                         fontSize: 30,
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     "Fill your details or continue with",
                     style: TextStyle(
                         fontSize: 25,
                         color: Color(0XFF707B81),
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 2),
-                  Text(
+                  const SizedBox(height: 2),
+                  const Text(
                     "social media",
                     style: TextStyle(
                         fontSize: 25,
                         color: Color(0XFF707B81),
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     "Your Name                                        ",
                     style: TextStyle(
                         fontSize: 25,
@@ -72,7 +71,7 @@ class _SignInScreenState extends State<SignUpScreen> {
 
                   // Your Name Field
                   Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: TextFormField(
                       controller: _nameController,
                       decoration: InputDecoration(
@@ -80,7 +79,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         hintText: "**************",
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           color: Color(0XFF707B81),
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -94,8 +93,8 @@ class _SignInScreenState extends State<SignUpScreen> {
                       },
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     "Email Address                                 ",
                     style: TextStyle(
                         fontSize: 25,
@@ -103,7 +102,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                         fontWeight: FontWeight.bold),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: TextFormField(
                       controller: _emailController,
                       decoration: InputDecoration(
@@ -111,7 +110,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         hintText: "xyz@gmail.com",
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           color: Color(0XFF707B81),
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -129,8 +128,8 @@ class _SignInScreenState extends State<SignUpScreen> {
                       },
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     "Password                                              ",
                     style: TextStyle(
                         fontSize: 25,
@@ -175,7 +174,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                       },
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   // Text(
                   //   "Recovery Password",
                   //   style: TextStyle(
@@ -184,7 +183,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                   //     fontWeight: FontWeight.bold,
                   //   ),
                   // ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   ElevatedButton(
                     onPressed: _isLoading
                         ? null
@@ -194,7 +193,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                                 _isLoading = true;
                               });
 
-                              Future.delayed(Duration(seconds: 8), () {
+                              Future.delayed(const Duration(seconds: 8), () {
                                 setState(() {
                                   _isLoading = false;
                                 });
@@ -202,22 +201,12 @@ class _SignInScreenState extends State<SignUpScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Homescreen(),
+                                    builder: (context) => const Homescreen(),
                                   ),
                                 );
                               });
                             }
                           },
-                    child: _isLoading
-                        ? CircularProgressIndicator()
-                        : Text(
-                            'Sign Up',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 130, vertical: 10),
@@ -226,21 +215,31 @@ class _SignInScreenState extends State<SignUpScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
+                    child: _isLoading
+                        ? const CircularProgressIndicator()
+                        : const Text(
+                            'Sign Up',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
                   ),
-                  SizedBox(height: 3),
+                  const SizedBox(height: 3),
                   Padding(
-                    padding: EdgeInsets.all(40),
+                    padding: const EdgeInsets.all(40),
                     child: Row(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 100,
                           width: 100,
                           child: Image.asset(
                             "assets/images/google.png",
                           ),
                         ),
-                        SizedBox(width: 15),
-                        Text(
+                        const SizedBox(width: 15),
+                        const Text(
                           'Sign Up with Google',
                           style: TextStyle(
                             fontSize: 20,
@@ -251,17 +250,17 @@ class _SignInScreenState extends State<SignUpScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignInScreen(),
+                          builder: (context) => const SignInScreen(),
                         ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "Already Have Account? Log In",
                       style: TextStyle(
                           fontSize: 25,
